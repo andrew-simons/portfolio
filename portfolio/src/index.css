@@ -1,0 +1,157 @@
+@import "tailwindcss";
+
+/* ── Design tokens ───────────────────────────────────────── */
+@theme {
+  --color-canvas:  #0D0B0E;
+  --color-gold:    #C9A84C;
+  --color-mauve:   #7C6A9C;
+  --color-cream:   #F0EDE8;
+  --color-mist:    #9B9390;
+
+  --font-display:  "Cormorant Garamond", serif;
+  --font-body:     "Plus Jakarta Sans", sans-serif;
+  --font-code:     "JetBrains Mono", monospace;
+}
+
+/* ── Base ────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #0D0B0E;
+  color: #F0EDE8;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ── Glass utilities ─────────────────────────────────────── */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.glass-elevated {
+  background: rgba(255, 255, 255, 0.09);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.13);
+}
+
+/* ── Background orbs ─────────────────────────────────────── */
+.orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+  will-change: transform;
+}
+
+.orb-gold-a {
+  width: 700px;
+  height: 700px;
+  background: #C9A84C;
+  opacity: 0.13;
+  top: -220px;
+  left: -160px;
+  animation: drift-a 28s ease-in-out infinite alternate;
+}
+
+.orb-mauve {
+  width: 580px;
+  height: 580px;
+  background: #7C6A9C;
+  opacity: 0.11;
+  bottom: -160px;
+  right: -120px;
+  animation: drift-b 34s ease-in-out infinite alternate;
+}
+
+.orb-gold-b {
+  width: 380px;
+  height: 380px;
+  background: #C9A84C;
+  opacity: 0.06;
+  top: 45%;
+  right: 22%;
+  animation: drift-c 42s ease-in-out infinite alternate;
+}
+
+@keyframes drift-a {
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(170px, 110px) scale(1.15); }
+}
+
+@keyframes drift-b {
+  from { transform: translate(0, 0) scale(1); }
+  to   { transform: translate(-110px, -160px) scale(1.12); }
+}
+
+@keyframes drift-c {
+  from { transform: translate(0, 0) scale(0.9); }
+  to   { transform: translate(-90px, 70px) scale(1.1); }
+}
+
+/* ── Custom cursor ───────────────────────────────────────── */
+@media (hover: hover) and (pointer: fine) {
+  html { cursor: none; }
+}
+
+/* ── Typewriter cursor blink ─────────────────────────────── */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+.cursor-blink {
+  animation: blink 0.75s step-start infinite;
+}
+
+/* ── Marquee ─────────────────────────────────────────────── */
+@keyframes marquee-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes marquee-right {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0%); }
+}
+
+.marquee-left {
+  animation: marquee-left 35s linear infinite;
+}
+
+.marquee-right {
+  animation: marquee-right 40s linear infinite;
+}
+
+/* Pause on hover */
+.marquee-left:hover,
+.marquee-right:hover {
+  animation-play-state: paused;
+}
+
+/* ── Projects carousel ───────────────────────────────────── */
+@keyframes marquee-projects {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.marquee-projects {
+  animation: marquee-projects 28s linear infinite;
+}
+
+.marquee-projects:hover {
+  animation-play-state: paused;
+}
