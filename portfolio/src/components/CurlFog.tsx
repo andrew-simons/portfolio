@@ -134,7 +134,6 @@ function FogScene({ getAudioData }: FogSceneProps) {
   return (
     <points>
       <bufferGeometry>
-        {/* @ts-expect-error, R3F bufferAttribute ref typing is loose in v9 */}
         <bufferAttribute
           ref={attrRef}
           attach="attributes-position"

@@ -67,7 +67,6 @@ export function Hero() {
   const handleMouseLeave = () => { mouseX.set(0); mouseY.set(0) }
 
   const primaryRef   = useMagnet<HTMLAnchorElement>(0.38, 95)
-  const secondaryRef = useMagnet<HTMLAnchorElement>(0.22, 80)
 
   return (
     <section
