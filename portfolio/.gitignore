@@ -1,0 +1,16 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Claude AI files
+CLAUDE.md
+.claude/
+
+# Mac junk
+.DS_Store
+
+# Local env files
+.env
+.env.local
